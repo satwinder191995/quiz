@@ -1,0 +1,94 @@
+
+Header{
+    display:flex;
+    justify-content:space-between;
+    Padding:20px;
+}
+body{
+    margin:0;
+    padding:0;
+}
+section{
+    height:fit-content;
+}
+.quiz{
+    display:block;
+    margin:auto;
+    text-align: center;
+    padding:20px 0px 0px 30px;
+    width:40%;
+    height:500px;
+}
+h1{
+    margin:0;
+    padding:0;
+}
+button{
+    width:100px;
+    height:40px;
+}
+.high{
+color:red;
+}
+ol{
+    height :100px;
+    text-align: left;
+    padding:0;
+    margin:0;
+    font-size:20px;
+    /* list-style: none; */
+}
+li{
+    display:block;
+    width:200px;
+    margin:10px 0 0 5px;
+    padding:10px;
+    border: 5px solid black;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.questionHeading{
+    font-size: 30px;
+    text-align: left;
+}
+li:hover{
+    background-color: blue;
+    color:white;
+}
+footer{
+    margin-left:33%;
+    font-size: 50px;
+}
+.submit{
+    margin:10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+input {
+    height:30px;
+}
+
+lable{
+    margin-right:30px;
+    font-size: 20px;
+}
+.back {
+    width:100px;
+    height:30px;
+    margin-right:20px;
+}
+.clear{
+    width:200px;
+    height:30px;
+}
+
+@media only screen and (max-width: 700px) {
+    .back{
+        margin:20px
+    }
+   }
+@media only screen and (max-width: 500px) {
+   .quiz{
+       width:90%;
+   }
+  }

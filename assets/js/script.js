@@ -22,11 +22,16 @@ var questions = [{
 var currentQuestion = 0;
 var score=0;
 var high = window.document.querySelector(".high");
+
+// High score button click function
 high.addEventListener("click",function(){
    var sectionScore = window.document.querySelector(".remove");
   sectionScore.remove();
   highScore();
 });
+
+
+// Home page function starts here
 var mainPage = function (){
   var high = window.document.querySelector(".high");
   if(high != null){
@@ -52,6 +57,8 @@ var mainPage = function (){
   button.className="start";
   main.appendChild(button);
   var high = window.document.querySelector(".high");
+
+// High score button function
 high.addEventListener("click",function(){
   var sectionScore = window.document.querySelector(".remove");
       sectionScore.remove();
@@ -60,62 +67,63 @@ high.addEventListener("click",function(){
   
 }
 
+// Questions loading function
 var newQuestion = function(){
-  var section = window.document.querySelector(".remove");
-  section.remove();
-var sectionQuiz = document.createElement("section");
-sectionQuiz.className = "remove";
-var question = document.createElement("h1");
-mainSection.appendChild(sectionQuiz);
-sectionQuiz.appendChild(question);
-question.className="questionHeading";
-question.textContent=questions[currentQuestion].question;
-var choices = document.createElement("ol");
-sectionQuiz.appendChild(choices);
-num = 1;
-for(i=0;i<questions[currentQuestion].choices.length;i++){
-  
-  var li = document.createElement("li");
-  li.setAttribute("id","select"+num);
-  li.textContent= questions[currentQuestion].choices[i];
-  choices.appendChild(li);
- num++
-}
-var ans = document.createElement("h2");
-ans.className="result";
-// ans.textContent="right";
-sectionQuiz.appendChild(ans);
+      var section = window.document.querySelector(".remove");
+      section.remove();
+      var sectionQuiz = document.createElement("section");
+      sectionQuiz.className = "remove";
+      var question = document.createElement("h1");
+      mainSection.appendChild(sectionQuiz);
+      sectionQuiz.appendChild(question);
+      question.className="questionHeading";
+      question.textContent=questions[currentQuestion].question;
+      var choices = document.createElement("ol");
+      sectionQuiz.appendChild(choices);
+      num = 1;
+      for(i=0;i<questions[currentQuestion].choices.length;i++){
+        
+        var li = document.createElement("li");
+        li.setAttribute("id","select"+num);
+        li.textContent= questions[currentQuestion].choices[i];
+        choices.appendChild(li);
+      num++
+      }
+      var ans = document.createElement("h2");
+      ans.className="result";
+      // ans.textContent="right";
+      sectionQuiz.appendChild(ans);
 
-};   
-var saveScore = function(){
-  document.getElementById("footer").innerText = "";
-  clearInterval(myInterval)
-  var section = window.document.querySelector(".remove");
-  section.remove();
-  var sectionQuiz = document.createElement("section");
-  sectionQuiz.className = "remove";
-  var h2 = document.createElement("h2");
-  mainSection.appendChild(sectionQuiz);
-  h2.textContent="All done!";
-  sectionQuiz.appendChild(h2);
-  
-  var h3 = document.createElement("h3");
-  h3.textContent="Your final score is  "+score;
-  sectionQuiz.appendChild(h3);
-  
-  var lable = document.createElement("lable");
-  lable.textContent="Enter initials";
-  var input = document.createElement("input");
-  input.setAttribute("id","initials");
-  sectionQuiz.appendChild(lable);
-  sectionQuiz.appendChild(input);
-  var button = document.createElement("button");
-  button.textContent="Submit";
-  button.className="submit";
-  sectionQuiz.appendChild(button);
+      };   
+      var saveScore = function(){
+        document.getElementById("footer").innerText = "";
+        clearInterval(myInterval)
+        var section = window.document.querySelector(".remove");
+        section.remove();
+        var sectionQuiz = document.createElement("section");
+        sectionQuiz.className = "remove";
+        var h2 = document.createElement("h2");
+        mainSection.appendChild(sectionQuiz);
+        h2.textContent="All done!";
+        sectionQuiz.appendChild(h2);
+        
+        var h3 = document.createElement("h3");
+        h3.textContent="Your final score is  "+score;
+        sectionQuiz.appendChild(h3);
+        
+        var lable = document.createElement("lable");
+        lable.textContent="Enter initials";
+        var input = document.createElement("input");
+        input.setAttribute("id","initials");
+        sectionQuiz.appendChild(lable);
+        sectionQuiz.appendChild(input);
+        var button = document.createElement("button");
+        button.textContent="Submit";
+        button.className="submit";
+        sectionQuiz.appendChild(button);
   }; 
 
-
+// High Score function starts here
 var highScore = function(){
   document.getElementById("footer").innerText = "";
     var high = document.createElement("section");
@@ -157,14 +165,11 @@ var highScore = function(){
     }
     p.textContent="Initials: " + player+"  Score:" +final;
   }
- 
-  console.log(final);
-    // console.log(result);
-    console.log(json)
+
    
     
 
-    var back = document.createElement("button");
+  var back = document.createElement("button");
   back.textContent="Go Back";
   back.className="back";
   var clear = document.createElement("button");
@@ -175,6 +180,8 @@ var highScore = function(){
 }
 var mainSection = window.document.querySelector(".quiz");
 var header = window.document.querySelector(".header");
+
+// all button functionality starts here
 mainSection.addEventListener("click",function(event){
   if(event.target.matches(".high")){
     alert("hello");
@@ -245,18 +252,12 @@ mainSection.addEventListener("click",function(event){
     var obj = [];
       obj = localStorage.getItem("highScore");
       try {
-        // if jQuery
         obj = JSON.parse(obj);
-        // if plain js
       }
       catch(e) {
-        // forget about it :)
+
       }
-    //   if(get!=null || get!== ""){
-     
-    //   obj = JSON.parse(get);
-    //   console.log ("obj iss"+ obj)
-    // }
+
     console.log(obj);
     var join = [];
     var array = 
@@ -274,9 +275,6 @@ mainSection.addEventListener("click",function(event){
      localStorage.setItem("highScore",JSON.stringify(join));
    }
    console.log(join);
-  // for(i=0;i<array.length;i++){
-  // var join = obj.push(array);
-  // }
 
   console.log("joint is "+join);
   var sectionScore = window.document.querySelector(".remove");
